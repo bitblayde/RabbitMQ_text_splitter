@@ -39,7 +39,7 @@ def callback(ch, method, properties, body):
     if FILE_COUNTER >= N_FILES and stop:
         ch.stop_consuming()
 
-    print(f" [x] Received: file number {FILE_COUNTER}") # %r" % body.decode())
+    print(f" [x] Received: file number {FILE_COUNTER}")
     save_text(text = body, root="./received_text")
     print(" [x] Done")
     ch.basic_ack(delivery_tag=method.delivery_tag)
